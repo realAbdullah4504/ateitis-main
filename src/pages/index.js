@@ -1,4 +1,5 @@
 import * as React from "react"
+import { graphql } from "gatsby"
 
 const pageStyles = {
   color: "#232129",
@@ -123,7 +124,8 @@ const links = [
   },
 ]
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
+  console.log(data)
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
@@ -174,3 +176,16 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head = () => <title>Home Page</title>
+
+
+export const query = graphql`
+  query {
+    allWpPost {
+      nodes {
+        id
+        title
+        excerpt
+      }
+    }
+  }
+`
