@@ -82,7 +82,7 @@ export function CarritoStep1({
   return (
     <Fragment>
       {loading && <LoadingComponentOverlay />}
-      <Modal.Header className={`mb-${gutter_s} carrito-modal-header`} closeButton>
+      <Modal.Header className={`mb-${gutter_s} carrito-modal-header ` } closeButton>
         <Modal.Title>
           {translations.cart.shoppingCart[language]} <img src={cartImg}></img>
         </Modal.Title>
@@ -170,7 +170,7 @@ export function CarritoStep1({
                           textShadow: "0 1px 0 rgba(#000, .5)",
                         }}
                         type="button"
-                        className="close"
+                        className="btn-close"
                         aria-label="Close"
                         // onClick={() =>
                         //   removeAllCoupons({

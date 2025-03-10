@@ -6,7 +6,7 @@ export default function LoadingComponentOverlay({ fullscreen = false }) {
     return (
       <div className="loading-component-overlay fullscreen">
         <Spinner animation="border" role="status" variant="dark">
-          <span className="sr-only">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </Spinner>
       </div>
     );
@@ -14,7 +14,7 @@ export default function LoadingComponentOverlay({ fullscreen = false }) {
   return (
     <div className="loading-component-overlay">
       <Spinner animation="border" role="status" variant="dark">
-        <span className="sr-only">Loading...</span>
+        <span className="visually-hidden">Loading...</span>
       </Spinner>
     </div>
   );

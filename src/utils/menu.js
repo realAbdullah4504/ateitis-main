@@ -1,10 +1,10 @@
 export const menuAcademy = {
   es: [
     { label: "INICIO", url: "/" },
-    { label: "ACADEMY", url: "academy#academy" },
-    { label: "CURSOS", url: "academy#cursos" },
+    { label: "ACADEMY", url: "/academy#academy" },
+    { label: "CURSOS", url: "/academy#cursos" },
     { label: "CARRITO", url: "?carrito=1" },
-    { label: "CONTACTO", url: "#contacto" },
+    { label: "CONTACTO", url: "/academy#contacto" },
   ],
   en: [
     { label: "HOME", url: "/en" },

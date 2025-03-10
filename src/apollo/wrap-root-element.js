@@ -24,7 +24,7 @@ import { Toaster } from "react-hot-toast";
  */
 export const wrapRootElement = ({ element }) => (
   <AppProvider>
-    <Toaster />
+    <Toaster position="top-right"/>
     {/* <ToastProvider> */}
     <LoadingProvider>
       <Loading />

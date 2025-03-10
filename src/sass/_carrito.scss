@@ -2,10 +2,13 @@
   flex-direction: column-reverse;
   padding: 0;
   align-items: flex-end;
-  .close {
+  .btn-close {
     padding: 0;
     margin: 0.5rem 1rem;
-    font-size: 2rem;
+    font-size: 17px;
+    text-shadow: 0 1px 0 rgba(#000, .5);
+    // font-size: 100%;
+    font-weight: 700px;
   }
   .modal-title {
     margin-top: 0;

@@ -61,14 +61,15 @@ export default function AddToCartButton({ product, caption, className, language 
       //   }
       // );
 
-      toast.success(
+      toast.custom(
         <div className="toast-content">
           <div>{`${translations.cart.theProduct[language]} ${name} ${translations.cart.added[language]}.`}</div>
-          <Button href={`?${translations.cart.cart[language]}=1`} variant="outline-dark">
+          <Button href={`?${translations.cart.cart[language]}=1`} variant="outline-dark" style={{width:"50%"}}>
             {translations.cart.seeCart[language]}
           </Button>
         </div>
       );
+      
       getCart();
     },
 
@@ -77,6 +78,7 @@ export default function AddToCartButton({ product, caption, className, language 
       //   appearance: "error",
       //   autoDismiss: true,
       // });
+      toast.error(translations.cart.cantAdd[language]);
     },
   });
 
@@ -84,7 +86,7 @@ export default function AddToCartButton({ product, caption, className, language 
     return (
       <Button variant="dark" disabled className={`add-to-cart-button  ${className}`}>
         <Spinner as="span" animation="border" role="status" variant="light" size="sm">
-          <span className="sr-only">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </Spinner>
         {caption} <img src={cartImg}></img>
       </Button>
