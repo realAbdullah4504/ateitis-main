@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import AcademyBlock from "../components/academy-block";
@@ -19,8 +19,9 @@ export default function AcademyPage({ data, pathContext, location }) {
   const language = "en";
   
   const handleCloseCarrito = () => {
-    setShowCarrito(undefined);
-    setCartStep(undefined);
+    navigate(window.location.pathname, { replace: true });
+    // setShowCarrito(undefined);
+    // setCartStep(undefined);
   };
   const handleShowCarrito = () => {
     setShowCarrito(true);

@@ -1,7 +1,6 @@
-import { graphql } from "gatsby";
-import React from "react";
+import { graphql, navigate } from "gatsby";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { BooleanParam, NumberParam, useQueryParam } from "use-query-params";
 import AcademyBlock from "../components/academy-block";
 import Carrito from "../components/carrito";
 import ContactoBlock from "../components/contacto-block";
@@ -14,19 +13,32 @@ import logo from "../images/logo-ateitis-academy.png";
 import StickyImg from "../images/landing-page-computer.png";
 import flagUsa from "../images/flag-usa.png";
 import ScrollArrow from "../components/ui/scroll-arrow";
-export default function AcademyPage({ data }) {
+export default function AcademyPage({ data, location }) {
   const language = "es";
 
   const handleCloseCarrito = () => {
-    setShowCarrito(undefined);
-    setCartStep(undefined);
+    navigate(window.location.pathname, { replace: true });
+    // setShowCarrito(undefined);
+    // setCartStep(undefined);
   };
   const handleShowCarrito = () => {
     setShowCarrito(true);
     setCartStep(1);
   };
-  const [showCarrito, setShowCarrito] = useQueryParam("carrito", BooleanParam);
-  const [cartStep, setCartStep] = useQueryParam("step", NumberParam);
+  const [showCarrito, setShowCarrito] = useState(false);
+
+
+  const [cartStep, setCartStep] = useState(undefined);
+
+  const updateCartState = () => {
+    const params = new URLSearchParams(location.search);
+    setShowCarrito(params.get("carrito") === "1");
+    setCartStep(params.get("cartStep") ? Number(params.get("cartStep")) : 1);
+  };
+
+  useEffect(() => {
+    updateCartState();
+  }, [location.search]);
 
   return (
     <div id="academy-page">

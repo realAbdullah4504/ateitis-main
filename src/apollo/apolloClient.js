@@ -1,9 +1,11 @@
+/**
+ * Internal dependencies.
+ */
 import fetch from "isomorphic-fetch";
-import { ApolloClient, InMemoryCache, createHttpLink, from } from "@apollo/client";
-import { setContext } from '@apollo/client/link/context';
-import { onError } from "@apollo/client/link/error";
+
+import { ApolloClient, InMemoryCache, ApolloLink,HttpLink } from "@apollo/client";
 import { isEmpty } from "lodash";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 
 // Token expiry check
 const isTokenExpired = authToken => {
@@ -12,94 +14,123 @@ const isTokenExpired = authToken => {
     const { exp } = jwtDecode(authToken);
     const date = new Date(0);
     date.setUTCSeconds(exp);
-    return Date.now() >= date.getTime();
+    return Date.now() >= date.getTime() - 172100;
   } catch {
     return true;
   }
 };
+/**
+ * Middleware operation
+ *
+ * If we have a session token in localStorage, add it to the GraphQL request as a Session header.
+ * If we have a auth token in localStorage, add it to the GraphQL request as a authorization header.
+ */
+export const middleware = new ApolloLink((operation, forward) => {
+  let headersData = null;
 
-// HTTP Link
-const httpLink = createHttpLink({
+  /**
+   * If session data exist in local storage, set value as session header.
+   */
+  const session = typeof window !== "undefined" ? localStorage.getItem("woo-session") : null;
+
+  if (!isEmpty(session)) {
+    if (isTokenExpired(session)) {
+      localStorage.removeItem("woo-session");
+    } else {
+      headersData = {
+        "woocommerce-session": `Session ${session}`,
+      };
+    }
+  }
+
+  /**
+   * If auth token exist in local storage, set value as authorization header.
+   */
+  const auth = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("auth")) : null;
+  const token = !isEmpty(auth) ? auth.authToken : null;
+
+  if (!isEmpty(token)) {
+    headersData = {
+      ...headersData,
+      authorization: token ? `Bearer ${token}` : "",
+    };
+  }
+
+  if (!isEmpty(headersData)) {
+    operation.setContext(({ headers = {} }) => ({
+      headers: headersData,
+    }));
+  }
+
+  return forward(operation);
+});
+
+/**
+ * Afterware operation.
+ *
+ * This catches the incoming session token and stores it in localStorage, for future GraphQL requests.
+ */
+export const afterware = new ApolloLink((operation, forward) => {
+  return forward(operation).map(response => {
+    /**
+     * Check for session header and update session in local storage accordingly.
+     */
+    const context = operation.getContext();
+
+    const {
+      response: { headers },
+    } = context;
+
+    const session = headers.get("woocommerce-session");
+
+    // if (response.errors && response.errors[0].message === "Expired token") {
+    //   console.log("Token Timeout: Iniciando una nueva sesión.");
+    //   localStorage.removeItem("woo-session");
+    // }
+
+    if (session) {
+      // Remove session data if session destroyed.
+      if ("false" === session) {
+        localStorage.removeItem("woo-session");
+
+        // Update session new data if changed.
+      } else if (localStorage.getItem("woo-session") !== session) {
+        localStorage.setItem("woo-session", headers.get("woocommerce-session"));
+      }
+    }
+
+    return response;
+  });
+});
+
+export const link = new ApolloLink((operation, forward) => {
+  // console.log("Add");
+  return forward(operation);
+});
+
+const httpLink = new HttpLink({
   uri: `${process.env.GATSBY_WORDPRESS_SITE_URL}/graphql`,
   fetch,
   credentials: 'include',
 });
 
-// Auth Link
-const authLink = setContext((_, { headers }) => {
-  let sessionHeader = {};
-  let authHeader = {};
 
-  if (typeof window !== 'undefined') {
-    // Session handling
-    const session = localStorage.getItem("woo-session");
-    if (!isEmpty(session)) {
-      if (isTokenExpired(session)) {
-        localStorage.removeItem("woo-session");
-      } else {
-        sessionHeader = {
-          "woocommerce-session": `Session ${session}`
-        };
-      }
-    }
-
-    // Auth token handling
-    const auth = JSON.parse(localStorage.getItem("auth") || "null");
-    const token = auth?.authToken;
-    if (!isEmpty(token)) {
-      authHeader = {
-        authorization: `Bearer ${token}`
-      };
-    }
-  }
-
-  return {
-    headers: {
-      ...headers,
-      ...sessionHeader,
-      ...authHeader
-    }
-  };
-});
-
-// Error Link
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors) {
-    graphQLErrors.forEach(({ message, locations, path }) => {
-      console.error(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      );
-      
-      // Handle session expiration
-      if (message.includes('Expired token')) {
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem("woo-session");
-        }
-      }
-    });
-  }
-  if (networkError) {
-    console.error(`[Network error]: ${networkError}`);
-  }
-});
-
-// Apollo Client configuration
 export const client = new ApolloClient({
-  link: from([errorLink, authLink, httpLink]),
-  cache: new InMemoryCache({
-    typePolicies: {
-      // Add any type policies if needed
-    }
-  }),
-  connectToDevTools: true,
-  defaultOptions: {
-    watchQuery: {
-      fetchPolicy: 'network-only',
-      errorPolicy: 'ignore',
-    },
-    query: {
-      fetchPolicy: 'network-only',
-      errorPolicy: 'all',
-    },
-  }
+  credentials: "include",
+  link: ApolloLink.from(
+    [middleware, afterware, httpLink]
+  ),
+  cache: new InMemoryCache(),
+  clientState: {},
 });
+
+// export const client = new ApolloClient({
+//   //   credentials: "include",
+//   link: createHttpLink({
+//     fetch: fetch,
+//     // credentials: "include",
+//     uri: `${process.env.GATSBY_WORDPRESS_SITE_URL}/graphql`,
+//   }),
+//   cache: new InMemoryCache(),
+//   clientState: {},
+// });

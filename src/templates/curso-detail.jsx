@@ -1,6 +1,6 @@
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BooleanParam, NumberParam, useQueryParam } from "use-query-params";
 import AddToCartButton from "../components/add-to-cart-button";
@@ -25,24 +25,33 @@ import { toTitleCase } from "../utils/string-utils";
 import translations from "../utils/translations";
 import ScrollArrow from "../components/ui/scroll-arrow";
 
-export default function CursoDetail({ data, pageContext }) {
+export default function CursoDetail({ data, pageContext, location }) {
   const { slug, language, localizedSlug, acfCursos } = pageContext;
   // console.log(pageContext);
   // console.log(data);
   // console.log(language);
   const handleCloseCarrito = () => {
-    setShowCarrito(undefined);
-    setCartStep(undefined);
+    navigate(window.location.pathname, { replace: true });
+    // setShowCarrito(undefined);
+    // setCartStep(undefined);
   };
   const handleShowCarrito = () => {
     setShowCarrito(true);
     setCartStep(1);
   };
-  const [showCarrito, setShowCarrito] = useQueryParam(
-    translations.cart.cart[language],
-    BooleanParam
-  );
-  const [cartStep, setCartStep] = useQueryParam("step", NumberParam);
+
+  const [showCarrito, setShowCarrito] = useState(false);
+  const [cartStep, setCartStep] = useState(undefined);
+
+    const updateCartState = () => {
+      const params = new URLSearchParams(location.search);
+      setShowCarrito(params.get(`${translations.cart.cart[language]}`) === "1");
+      setCartStep(params.get("step") ? Number(params.get("step")) : 1);
+    };
+  
+    useEffect(() => {
+      updateCartState();
+    }, [location.search]);
 
   const { id, productId, name, description, image, price } = data.wpSimpleProduct;
 
@@ -119,7 +128,7 @@ export default function CursoDetail({ data, pageContext }) {
           {image && (
             <div className="curso-image">
               {/* <GatsbyImage image={getImage(image.localFile.childImageSharp.fluid)} alt="Curso" imgStyle={{ objectFit: "contain" }}></GatsbyImage> */}
-            
+
             </div>
           )}
           <Col md={12} lg={6} className="d-flex flex-column">

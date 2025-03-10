@@ -28,7 +28,7 @@ export function CarritoStep2({
   loading,
   language,
 }) {
-  const monedasOptions = monedas.map(x => {
+  const monedasOptions = monedas?.map(x => {
     return {
       value: x.name,
       label: x.name,

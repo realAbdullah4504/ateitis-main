@@ -33,7 +33,7 @@ export function CarritoStep1({
   setMoneda,
   language,
 }) {
-  const monedasOptions = monedas.map(x => {
+  const monedasOptions = monedas?.map(x => {
     return {
       value: x.name,
       label: x.name,
@@ -213,15 +213,13 @@ export function CarritoStep1({
                     name="cupon-descuento"
                     id="cupon-descuento"
                   />
-                  <InputGroup.Append>
-                    <Button
-                      style={{ borderColor: "#ced4da" }}
-                      variant="outline-secondary"
-                      onClick={removeAndApplyCoupon}
-                    >
-                      {translations.cart.apply[language]}
-                    </Button>
-                  </InputGroup.Append>
+                  <Button
+                    style={{ borderColor: "#ced4da" }}
+                    variant="outline-secondary"
+                    onClick={removeAndApplyCoupon}
+                  >
+                    {translations.cart.apply[language]}
+                  </Button>
                 </InputGroup>
               </Col>
             </Row>
@@ -251,9 +249,8 @@ export function CarritoStep1({
                   block
                   variant="light"
                   size="lg"
-                  href={`${
-                    language === "es" ? "" : "/" + language
-                  }/academy#${translations.courses[language].toLowerCase()}`}
+                  href={`${language === "es" ? "" : "/" + language
+                    }/academy#${translations.courses[language].toLowerCase()}`}
                   className="w-md-100"
                 >
                   {translations.cart.seeMoreCourses[language].toUpperCase()}

@@ -13,6 +13,7 @@ import { convertHtmlToText } from "../utils/functions";
 import { toTitleCase } from "../utils/string-utils";
 import translations from "../utils/translations";
 import AddToCartButton from "./add-to-cart-button";
+import { Link } from "gatsby";
 
 var utc = require("dayjs/plugin/utc"); // dependent on utc plugin
 var timezone = require("dayjs/plugin/timezone");
@@ -104,9 +105,9 @@ export default function CursoCard({ curso, language }) {
       </div>
       <Row className="cta">
         <Col sm={12} lg={6} className="mb-2">
-          <a href={`academy/${slug}`} className="btn btn-primary">
+          <Link href={`${slug}`} className="btn btn-primary">
             {translations.seeMore[language]}
-          </a>
+          </Link>
         </Col>
         <Col sm={12} lg={6} className="mb-2">
           {price ? (
