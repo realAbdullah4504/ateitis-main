@@ -1,10 +1,10 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
 import MainAnimation from "../components/main-animation.jsx";
-import SEO from "../components/seo.jsx";
+import SEO from "../components/seo.js";
 import logoAcademy from "../images/logo-ateitis-academy.png";
 import logo from "../images/logo-ateitis.png";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage} from "gatsby-plugin-image";
 import flagUsa from "../images/flag-usa.png";
 
 export default function IndexPage({ data }) {
@@ -41,11 +41,11 @@ export default function IndexPage({ data }) {
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
             /> */}
-            <GatsbyImage
+            {/* <GatsbyImage
               image={getImage(data.getLogoAteitis)}
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
-            />
+            /> */}
           </div>
           <Link to={serviciosLink.url}>{serviciosLink.label}</Link>
         </nav>
@@ -56,11 +56,11 @@ export default function IndexPage({ data }) {
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
             /> */}
-            <GatsbyImage
+            {/* <GatsbyImage
               image={getImage(data.getLogoAcademy)}
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
-            />
+            /> */}
           </div>
           <Link to={academyLink.url}>{academyLink.label}</Link>
         </nav>

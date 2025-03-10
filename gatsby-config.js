@@ -16,8 +16,17 @@ module.exports = {
   plugins: [{
     resolve: 'gatsby-source-wordpress',
     options: {
-      "url": "https://api.ateitiscorp.com/graphql"
+      "url": `${process.env.GATSBY_WORDPRESS_SITE_URL}/graphql`
     }
+  },
+  {
+    resolve: `gatsby-plugin-i18n`,
+    options: {
+      langKeyDefault: "es",
+      langKeyForNull: "es",
+      prefixDefault: false,
+      useLangKeyLayout: false,
+    },
   },
     `gatsby-plugin-react-helmet`,
   {
@@ -47,6 +56,6 @@ module.exports = {
       },
     },
   },
-    "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components",
+    "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components", "gatsby-plugin-use-query-params", "gatsby-plugin-smoothscroll",
   ]
 };
