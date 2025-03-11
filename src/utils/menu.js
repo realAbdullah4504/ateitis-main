@@ -17,9 +17,9 @@ export const menuAcademy = {
 export const menuServicios = {
   es: [
     { label: "INICIO", url: "/" },
-    { label: "NOSOTROS", url: "servicios#nosotros" },
-    { label: "SERVICIOS", url: "servicios#servicios" },
-    { label: "CLIENTES", url: "servicios#clientes" },
+    { label: "NOSOTROS", url: "/servicios#nosotros" },
+    { label: "SERVICIOS", url: "/servicios#servicios" },
+    { label: "CLIENTES", url: "/servicios#clientes" },
     { label: "CONTACTO", url: "#contacto" },
   ],
   en: [

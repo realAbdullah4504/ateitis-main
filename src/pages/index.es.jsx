@@ -29,10 +29,10 @@ export default function IndexPage({ data }) {
         </div>
         <div className="circle"></div>
       </div>
-      <a className="languageSelector" href="/en/">
+      {/* <a className="languageSelector" href="/en/">
         <img src={flagUsa} alt="" />
         <span>ENGLISH SITE</span>
-      </a>
+      </a> */}
       <div className="nav-container">
         <nav className="left">
           <div className="imgWrapper">

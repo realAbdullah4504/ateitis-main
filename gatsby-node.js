@@ -15,9 +15,6 @@ exports.createPages = async ({ graphql, actions }) => {
               es {
                 slugEs
               }
-              en {
-                slugEn
-              }
             }
           }
         }

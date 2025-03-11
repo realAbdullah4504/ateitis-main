@@ -88,7 +88,7 @@ export default function CursoDetail({ data, pageContext, location }) {
       <a className="servicios-link hvr-radial-out" href={serviciosLink}>
         <span>{translations.knowOurServices[language]}</span>
       </a>
-      {language === "es" ? (
+      {/* {language === "es" ? (
         <a className="languageSelectorPages" href={`/en/academy/${slugEn}`}>
           <img src={flagUsa} alt="" />
           <span>ENGLISH SITE</span>
@@ -98,7 +98,7 @@ export default function CursoDetail({ data, pageContext, location }) {
           <img src={flagUsa} alt="" />
           <span>SITIO EN ESPAÑOL</span>
         </a>
-      )}
+      )} */}
       <Row noGutters className="logo-container">
         <Col>
           <div className="logo">

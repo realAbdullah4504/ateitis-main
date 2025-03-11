@@ -47,10 +47,10 @@ export default function AcademyPage({ data, location }) {
       <a className="servicios-link hvr-radial-out" href="/servicios">
         <span>¿QUERÉS CONOCER NUESTROS SERVICIOS?</span>
       </a>
-      <a className="languageSelectorPages" href="/en/academy">
+      {/* <a className="languageSelectorPages" href="/en/academy">
         <img src={flagUsa} alt="" />
         <span>ENGLISH SITE</span>
-      </a>
+      </a> */}
       <Row noGutters className="logo-container">
         <Col>
           <div className="logo">
