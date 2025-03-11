@@ -14,19 +14,32 @@ export const menuAcademy = {
     { label: "CONTACT", url: "#contact" },
   ],
 };
+// export const menuServicios = {
+//   es: [
+//     { label: "INICIO", url: "/" },
+//     { label: "NOSOTROS", url: "/servicios#nosotros" },
+//     { label: "SERVICIOS", url: "/servicios#servicios" },
+//     { label: "CLIENTES", url: "/servicios#clientes" },
+//     { label: "CONTACTO", url: "#contacto" },
+//   ],
+//   en: [
+//     { label: "HOME", url: "/en" },
+//     { label: "ABOUT US", url: "/en/services#aboutus" },
+//     { label: "SERVICES", url: "/en/services#services" },
+//     { label: "CUSTOMERS", url: "/en/services#customers" },
+//     { label: "CONTACT", url: "#contact" },
+//   ],
+// };
+
 export const menuServicios = {
   es: [
-    { label: "INICIO", url: "/" },
-    { label: "NOSOTROS", url: "/servicios#nosotros" },
+    { label: "SOBRE NOSOTROS", url: "/servicios#nosotros" },
     { label: "SERVICIOS", url: "/servicios#servicios" },
+    { label: "CERTIFICACIONES", url: "/servicios#certificaciones" },
     { label: "CLIENTES", url: "/servicios#clientes" },
+    { label: "TESTIMONIOS", url: "/servicios#testimonios" },
+    { label: "FAQS", url: "/servicios#faqs" },
+    { label: "BlOGS", url: "/servicios#blogs" },
     { label: "CONTACTO", url: "#contacto" },
-  ],
-  en: [
-    { label: "HOME", url: "/en" },
-    { label: "ABOUT US", url: "/en/services#aboutus" },
-    { label: "SERVICES", url: "/en/services#services" },
-    { label: "CUSTOMERS", url: "/en/services#customers" },
-    { label: "CONTACT", url: "#contact" },
   ],
 };

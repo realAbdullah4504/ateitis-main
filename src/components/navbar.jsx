@@ -13,7 +13,7 @@ export default function NavbarMenu({ language, section }) {
   return (
     // <Nav className="navbar justify-content-center" activeKey="/home">
     <Navbar collapseOnSelect expand="md">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand href="#home" className="navbar-academy">
         <img src={logo} alt="Ateitis Logo" height="120px" alt="" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />

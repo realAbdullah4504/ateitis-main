@@ -13,6 +13,7 @@ import SEO from "../components/seo";
 import StickyImg from "../images/landing-page-computer.png";
 import flagUsa from "../images/flag-usa.png";
 import ScrollArrow from "../components/ui/scroll-arrow";
+import NavbarServicios from "../components/navbar-servicios";
 
 export default function ServiciosPage({ data, location }) {
   const language = "es";
@@ -33,28 +34,30 @@ export default function ServiciosPage({ data, location }) {
       </Helmet>
       <SEO title="Servicios" />
       <ScrollArrow />
-      <a className="academy-link hvr-radial-out" href="/academy">
+      {/* <a className="academy-link hvr-radial-out" href="/academy">
         <span>¿QUERÉS CONOCER NUESTRA ACADEMY?</span>
-      </a>
+      </a> */}
       {/* <a className="languageSelectorPages" href="/en/services">
         <img src={flagUsa} alt="" />
         <span>ENGLISH SITE</span>
       </a> */}
-      <Row noGutters className="logo-container">
+      {/* <Row noGutters className="logo-container">
         <Col>
           <div className="logo">
             <img src={logo} alt="Ateitis Logo" />
           </div>
         </Col>
-      </Row>
-      <NavbarMenu language={language}></NavbarMenu>
+      </Row> */}
+      {/* <NavbarMenu language={language}></NavbarMenu> */}
 
-      <div className="main-section-wrapper">
+      <NavbarServicios />
+
+      <div className="">
         {/* <div className="cable"></div> */}
         <div className="main-section">
-          <div className="sticky-sidebar">
+          {/* <div className="sticky-sidebar">
             <img src={StickyImg} alt="Sticky Image" />
-          </div>
+          </div> */}
           <div className="main-section-content">
             <Container>
               <Row>
