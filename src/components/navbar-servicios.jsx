@@ -6,16 +6,18 @@ import logoAteitis from "../images/new-logo-ateitis.png";
 export default function NavbarServicios() {
     const menu = menuServicios["es"];
     return (
-        <Navbar collapseOnSelect expand="lg" className="navbar-menu">
+        <Navbar collapseOnSelect expand="md" className="navbar-menu">
             <Navbar.Brand href="#home" className="">
-                <img src={logoAteitis} alt="Ateitis Logo" width={'200px'} style={{
-                    // maxWidth: '200px',
-                }} alt="" />
+                <img src={logoAteitis} alt="Ateitis Logo"  alt="Ateitis Logo" style={{
+                    maxWidth:"200px",
+                }} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav " className='' >
-                <div className='d-flex  justify-content-center  flex-lg-row flex-column' style={{
-                    flex: 1,
+            <Navbar.Collapse id="responsive-navbar-nav" className='flex-wrap' >
+                <div className='d-flex  justify-content-evenly flex-md-row flex-column flex-wrap ' style={{
+                    flex:1,
+                    minWidth:"fit-content"
+
                 }}>
                     {menu.map(item => (
                         <Nav.Item key={item.url}>
