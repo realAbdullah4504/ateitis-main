@@ -10,8 +10,8 @@ export default function Certificaciones() {
     data.allWpPage.edges[0].node.acfNuestrasCertificaciones.imagen.localFile
       .childImageSharp.fluid;
 
-  // return <GatsbyImage image={getImage(imagen)} alt="Certificaciones" />;\
-  return <></>
+  return <GatsbyImage image={getImage(imagen)} alt="Certificaciones" />;
+  // return <></>
 }
 
 const certificacionesQuery = graphql`

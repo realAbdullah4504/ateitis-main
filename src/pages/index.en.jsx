@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import logoAcademy from "../images/logo-ateitis-academy.png";
 import logo from "../images/logo-ateitis.png";
 import flagSpain from "../images/flag-spain.png";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function IndexPage({ data }) {
   const language = "en";
@@ -45,11 +46,11 @@ export default function IndexPage({ data }) {
         </nav>
         <nav className="right">
           <div className="imgWrapper">
-            {/* <GatsbyImage
+            <GatsbyImage
               image={getImage(data.getLogoAcademy)}
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
-            /> */}
+            />
           </div>
           <Link to="academy">Our Academy</Link>
         </nav>

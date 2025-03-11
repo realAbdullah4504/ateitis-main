@@ -113,11 +113,11 @@ export default function CursoDetail({ data, pageContext, location }) {
           <Col className="my-md-3 my-lg-5 curso-details-title">
             <div className="category">
               {categoria.image && (
-                // <GatsbyImage image={getImage(categoria.image.localFile.childImageSharp.fluid)} alt="Categoria">
-                //   imgStyle={{ objectFit: "contain" }}
+                <GatsbyImage image={getImage(categoria.image.localFile.childImageSharp.fluid)} alt="Categoria">
+                  imgStyle={{ objectFit: "contain" }}
 
-                // </GatsbyImage>
-                <></>
+                </GatsbyImage>
+                // <></>
               )}
               <h2>{categoria.acfCategoria[language]}</h2>
             </div>
@@ -127,7 +127,7 @@ export default function CursoDetail({ data, pageContext, location }) {
         <Row className="justify-content-center" style={{ position: "relative" }}>
           {image && (
             <div className="curso-image">
-              {/* <GatsbyImage image={getImage(image.localFile.childImageSharp.fluid)} alt="Curso" imgStyle={{ objectFit: "contain" }}></GatsbyImage> */}
+              <GatsbyImage image={getImage(image.localFile.childImageSharp.fluid)} alt="Curso" imgStyle={{ objectFit: "contain" }}></GatsbyImage>
 
             </div>
           )}

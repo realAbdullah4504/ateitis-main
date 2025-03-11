@@ -22,7 +22,7 @@ export default function BotonModal({
         className={`boton-modal ${color ? "" : "secundario"} hvr-bob`}
       >
         <div className="image-container">
-          {/* <GatsbyImage image={getImage(logo)}></GatsbyImage> */}
+          <GatsbyImage image={getImage(logo)}></GatsbyImage>
         </div>
         <div className="label">
           <div className="boton-modal-subtitulo">{subTitulo}</div>
@@ -71,7 +71,7 @@ function ModalBotonModal(props) {
       <Modal.Body>
         {iconoEnBody && (
           <div className="background">
-            {/* <GatsbyImage image={getImage(logo)}></GatsbyImage> */}
+            <GatsbyImage image={getImage(logo)}></GatsbyImage>
           </div>
         )}
 
@@ -80,7 +80,7 @@ function ModalBotonModal(props) {
       {mostrarFooter && (
         <Modal.Footer>
           {/* <Button onClick={props.onHide}>Close</Button> */}
-          {/* <GatsbyImage image={logo}></GatsbyImage> */}
+          <GatsbyImage image={logo}></GatsbyImage>
         </Modal.Footer>
       )}
     </Modal>

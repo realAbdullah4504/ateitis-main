@@ -67,12 +67,12 @@ export default function CursoCard({ curso, language }) {
     <div className="curso-card">
       <div className="header">
         {fotoProfesor ? (
-          <></>
-          // <GatsbyImage image={getImage(fotoProfesor)} alt="Profesor" imgStyle={{ objectFit: "contain" }}></GatsbyImage>
+          // <></>
+          <GatsbyImage image={getImage(fotoProfesor)} alt="Profesor" imgStyle={{ objectFit: "contain" }}></GatsbyImage>
         ) : null}
         {imagenCurso ? (
-          <></>
-          // <GatsbyImage image={getImage(imagenCurso)} alt="Curso" imgStyle={{ objectFit: "contain" }}></GatsbyImage>
+          // <></>
+          <GatsbyImage image={getImage(imagenCurso)} alt="Curso" imgStyle={{ objectFit: "contain" }}></GatsbyImage>
         ) : null}
       </div>
       <div className="title">

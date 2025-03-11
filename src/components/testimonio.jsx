@@ -21,7 +21,7 @@ export default function Testimonio({ cliente, carousel }) {
           </div>
         </div>
         <div className="foto">
-          {/* <GatsbyImage image={getImage(imagen)}></GatsbyImage> */}
+          <GatsbyImage image={getImage(imagen)}></GatsbyImage>
           <div className="estrella"></div>
         </div>
       </Col>

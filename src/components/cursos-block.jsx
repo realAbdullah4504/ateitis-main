@@ -30,9 +30,9 @@ export default function CursosBlock({ language }) {
           <Container key={cat.node.id}>
             <Row>
               <Col className="my-5 curso-selection-category">
-                {/* <GatsbyImage image={cat.node?.image?.localFile
+                <GatsbyImage image={cat.node?.image?.localFile
                   ? getImage(cat.node.image.localFile.childImageSharp.fluid)
-                  : null}></GatsbyImage> */}
+                  : null}></GatsbyImage>
                 <h2>{cat.node.acfCategoria[language]}</h2>
               </Col>
             </Row>

@@ -41,11 +41,11 @@ export default function IndexPage({ data }) {
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
             /> */}
-            {/* <GatsbyImage
+            <GatsbyImage
               image={getImage(data.getLogoAteitis)}
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
-            /> */}
+            />
           </div>
           <Link to={serviciosLink.url}>{serviciosLink.label}</Link>
         </nav>
@@ -56,11 +56,11 @@ export default function IndexPage({ data }) {
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
             /> */}
-            {/* <GatsbyImage
+            <GatsbyImage
               image={getImage(data.getLogoAcademy)}
               alt="Ateitis Logo"
               style={{ height: "100%", width: "100%" }}
-            /> */}
+            />
           </div>
           <Link to={academyLink.url}>{academyLink.label}</Link>
         </nav>

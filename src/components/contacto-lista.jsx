@@ -29,11 +29,11 @@ export default function ContactoLista({ data, nodeName }) {
         {iconos.map(icono =>
           icono.url ? (
             <a href={icono.url} target="_blank " rel="noreferrer" key={icono.icon.id}>
-              {/* <GatsbyImage image={getImage(icono.icon.localFile.childImageSharp.fixed)}></GatsbyImage> */}
+              <GatsbyImage image={getImage(icono.icon.localFile.childImageSharp.fixed)}></GatsbyImage>
             </a>
           ) : (
-            <></>
-            // <GatsbyImage image={getImage(icono.icon.localFile.childImageSharp.fixed)}></GatsbyImage>
+            // <></>
+            <GatsbyImage image={getImage(icono.icon.localFile.childImageSharp.fixed)}></GatsbyImage>
           )
         )}
       </div>

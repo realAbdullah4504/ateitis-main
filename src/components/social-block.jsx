@@ -18,7 +18,7 @@ export default function SocialBlock() {
           target="_blank"
           rel="noreferrer"
         >
-          {/* <GatsbyImage image={getImage(red.node.acfRedesSociales.icono.localFile.childImageSharp.fixed)}></GatsbyImage> */}
+          <GatsbyImage image={getImage(red.node.acfRedesSociales.icono.localFile.childImageSharp.fixed)}></GatsbyImage>
         
         </a>
       ))}
