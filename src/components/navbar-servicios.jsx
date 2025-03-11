@@ -6,15 +6,15 @@ import logoAteitis from "../images/new-logo-ateitis.png";
 export default function NavbarServicios() {
     const menu = menuServicios["es"];
     return (
-        <Navbar collapseOnSelect expand="md" className="navbar-menu">
+        <Navbar collapseOnSelect expand="lg" className="navbar-menu">
             <Navbar.Brand href="#home" className="">
-                <img src={logoAteitis} alt="Ateitis Logo" width={'100%'} style={{
-                    maxWidth: '200px',
+                <img src={logoAteitis} alt="Ateitis Logo" width={'200px'} style={{
+                    // maxWidth: '200px',
                 }} alt="" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" >
-                <div className='d-flex flex-wrap justify-content-center flex-md-row flex-column' style={{
+            <Navbar.Collapse id="responsive-navbar-nav " className='' >
+                <div className='d-flex  justify-content-center  flex-lg-row flex-column' style={{
                     flex: 1,
                 }}>
                     {menu.map(item => (
