@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   result.data.allWpSimpleProduct.edges.forEach(({ node }) => {
-    const languages = ["es", "en"];
+    const languages = ["es"];
 
     for (let language of languages) {
       const slug = node.acfCursos[language]["slug" + toTitleCase(language)]
