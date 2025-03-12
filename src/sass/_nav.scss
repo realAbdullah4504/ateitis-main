@@ -8,7 +8,6 @@
   font-size: 14px !important;
   line-height: 36px !important;
   padding: 0 10px !important;
-  flex-wrap: wrap;
   margin:0px !important;
 
   @media screen and (min-width: $md-min) {
@@ -53,7 +52,8 @@
     font-weight: 600;
     border-radius: 8px;
     margin-bottom: 16px !important;
-    min-width: fit-content;
+    width: fit-content;
+    cursor: pointer;
 
     @media screen and (min-width: $lg-min) {
       margin-bottom: 0 !important;

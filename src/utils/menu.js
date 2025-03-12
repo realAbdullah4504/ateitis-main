@@ -14,22 +14,6 @@ export const menuAcademy = {
     { label: "CONTACT", url: "#contact" },
   ],
 };
-// export const menuServicios = {
-//   es: [
-//     { label: "INICIO", url: "/" },
-//     { label: "NOSOTROS", url: "/servicios#nosotros" },
-//     { label: "SERVICIOS", url: "/servicios#servicios" },
-//     { label: "CLIENTES", url: "/servicios#clientes" },
-//     { label: "CONTACTO", url: "#contacto" },
-//   ],
-//   en: [
-//     { label: "HOME", url: "/en" },
-//     { label: "ABOUT US", url: "/en/services#aboutus" },
-//     { label: "SERVICES", url: "/en/services#services" },
-//     { label: "CUSTOMERS", url: "/en/services#customers" },
-//     { label: "CONTACT", url: "#contact" },
-//   ],
-// };
 
 export const menuServicios = {
   es: [

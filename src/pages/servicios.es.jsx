@@ -34,30 +34,11 @@ export default function ServiciosPage({ data, location }) {
       </Helmet>
       <SEO title="Servicios" />
       <ScrollArrow />
-      {/* <a className="academy-link hvr-radial-out" href="/academy">
-        <span>¿QUERÉS CONOCER NUESTRA ACADEMY?</span>
-      </a> */}
-      {/* <a className="languageSelectorPages" href="/en/services">
-        <img src={flagUsa} alt="" />
-        <span>ENGLISH SITE</span>
-      </a> */}
-      {/* <Row noGutters className="logo-container">
-        <Col>
-          <div className="logo">
-            <img src={logo} alt="Ateitis Logo" />
-          </div>
-        </Col>
-      </Row> */}
-      {/* <NavbarMenu language={language}></NavbarMenu> */}
 
       <NavbarServicios />
 
       <div className="">
-        {/* <div className="cable"></div> */}
         <div className="main-section">
-          {/* <div className="sticky-sidebar">
-            <img src={StickyImg} alt="Sticky Image" />
-          </div> */}
           <div className="main-section-content">
             <Container>
               <Row>
@@ -142,10 +123,7 @@ export const dataQuery = graphql`
                 id
                 childImageSharp {
                   id
-                  fixed(width: 100) {
-                    # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-                    ...GatsbyImageSharpFixed_noBase64
-                  }
+                  gatsbyImageData(width: 100, placeholder: BLURRED)
                 }
               }
             }
@@ -169,10 +147,7 @@ export const dataQuery = graphql`
                 id
                 childImageSharp {
                   id
-                  fixed(width: 400) {
-                    # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-                    ...GatsbyImageSharpFixed_noBase64
-                  }
+                  gatsbyImageData(width: 100, placeholder: BLURRED)
                 }
               }
             }
@@ -209,9 +184,7 @@ export const dataQuery = graphql`
               id
               localFile {
                 childImageSharp {
-                  fixed(width: 100) {
-                    ...GatsbyImageSharpFixed_noBase64
-                  }
+                  gatsbyImageData(width: 100, placeholder: BLURRED)
                 }
               }
             }

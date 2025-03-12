@@ -36,11 +36,6 @@ export default function IndexPage({ data }) {
       <div className="nav-container">
         <nav className="left">
           <div className="imgWrapper">
-            {/* <StaticImage
-              fluid={data.getLogoAteitis.childImageSharp.fluid}
-              alt="Ateitis Logo"
-              style={{ height: "100%", width: "100%" }}
-            /> */}
             <GatsbyImage
               image={getImage(data.getLogoAteitis)}
               alt="Ateitis Logo"
@@ -51,11 +46,6 @@ export default function IndexPage({ data }) {
         </nav>
         <nav className="right">
           <div className="imgWrapper">
-            {/* <StaticImage
-              fluid={data.getLogoAcademy.childImageSharp.fluid}
-              alt="Ateitis Logo"
-              style={{ height: "100%", width: "100%" }}
-            /> */}
             <GatsbyImage
               image={getImage(data.getLogoAcademy)}
               alt="Ateitis Logo"

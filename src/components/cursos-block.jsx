@@ -31,7 +31,7 @@ export default function CursosBlock({ language }) {
             <Row>
               <Col className="my-5 curso-selection-category">
                 <GatsbyImage image={cat.node?.image?.localFile
-                  ? getImage(cat.node.image.localFile.childImageSharp.fluid)
+                  ? getImage(cat.node.image.localFile.childImageSharp.gatsbyImageData)
                   : null}></GatsbyImage>
                 <h2>{cat.node.acfCategoria[language]}</h2>
               </Col>
@@ -74,9 +74,7 @@ const pageQuery = graphql`
               id
               childImageSharp {
                 id
-                fluid {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
+                gatsbyImageData(width: 100, placeholder: BLURRED)
               }
             }
           }
@@ -94,9 +92,7 @@ const pageQuery = graphql`
                   id
                   childImageSharp {
                     id
-                    fluid {
-                      ...GatsbyImageSharpFluid_noBase64
-                    }
+                    gatsbyImageData(width: 100, placeholder: BLURRED)
                   }
                 }
               }
@@ -125,9 +121,7 @@ const pageQuery = graphql`
                       id
                       childImageSharp {
                         id
-                        fluid {
-                          ...GatsbyImageSharpFluid_noBase64
-                        }
+                        gatsbyImageData(width: 100, placeholder: BLURRED)
                       }
                     }
                   }
@@ -152,9 +146,7 @@ const pageQuery = graphql`
                       id
                       childImageSharp {
                         id
-                        fluid {
-                          ...GatsbyImageSharpFluid_noBase64
-                        }
+                        gatsbyImageData(width: 100, placeholder: BLURRED)
                       }
                     }
                   }

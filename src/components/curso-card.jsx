@@ -60,9 +60,9 @@ export default function CursoCard({ curso, language }) {
   
   const fotoProfesor = curso.acfCursos[language]["fotoProfesor" + toTitleCase(language)]
     ? curso.acfCursos[language]["fotoProfesor" + toTitleCase(language)].localFile
-        .childImageSharp.fluid
+        .childImageSharp.gatsbyImageData
     : null;
-  const imagenCurso = curso.image ? curso.image.localFile.childImageSharp.fluid : null;
+  const imagenCurso = curso.image ? curso.image.localFile.childImageSharp.gatsbyImageData : null;
   return (
     <div className="curso-card">
       <div className="header">

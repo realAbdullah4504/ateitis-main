@@ -10,7 +10,7 @@ export default function BotonModal({
 }) {
   const titulo = data.node.title;
   const { color, subTitulo, texto, icono } = data.node[nodeName];
-  const logo = icono.localFile.childImageSharp.fixed;
+  const logo = icono.localFile.childImageSharp.gatsbyImageData;
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -80,7 +80,7 @@ function ModalBotonModal(props) {
       {mostrarFooter && (
         <Modal.Footer>
           {/* <Button onClick={props.onHide}>Close</Button> */}
-          <GatsbyImage image={logo}></GatsbyImage>
+          <GatsbyImage image={getImage(logo)}></GatsbyImage>
         </Modal.Footer>
       )}
     </Modal>
