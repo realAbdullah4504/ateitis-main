@@ -20,7 +20,8 @@
 .testimonio {
   display: flex;
   flex-direction: column;
-  flex-basis: calc(50% - 16px);
+  flex:1 1 calc(33% - 16px);
+  // flex-grow: 1 1 calc(50% - 16px);
 
   background-color: white;
   gap: 24px;
@@ -31,6 +32,10 @@
   // align-items: center;
   justify-content: space-between;
 
+  .burbuja{
+    flex:1;
+  }
+
   .foto-links {
     display: flex;
     justify-content: space-between;
@@ -40,7 +45,6 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-
     }
     .avatar {
       border-radius: 50%;

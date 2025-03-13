@@ -10,7 +10,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  // justify-content: flex-end;
   flex-direction: column;
 
   &>*:not(:last-child) {
@@ -39,13 +39,14 @@
 
   .image-container {
     display: flex;
-    align-items: center;
-    justify-items: center;
-    flex-grow: 1;
+    // align-items: center;
+    // justify-items: center;
+    // flex-grow: 1;
   }
 
   .label {
     margin-top: 20px;
+    flex:1;
   }
 
   &.secundario {
