@@ -14,29 +14,31 @@ export default function TestimoniosBlock({ data, language }) {
 
   return (
     <Fragment>
-      <Container fluid className="mt-4 px-xl-5 mx-sm-2 mx-md-5">
-        <Row>
-          <Col>
-            <Titulo
-              id="clientes-satisfechos"
-              data={translations.satisfiedClients[language]}
-              showInicial={false}
-            ></Titulo>
-          </Col>
-        </Row>
-        <Row className="justify-content-around d-none d-lg-flex">
-          {clientesSatisfechos?.map(cliente => (
-            <Testimonio
-              key={cliente.node.id}
-              cliente={cliente.node}
-              carousel={false}
-            ></Testimonio>
-          ))}
-        </Row>
-        <Row className="justify-content-around d-lg-none">
-          {testimonioCarousel({ clientesSatisfechos })}
-        </Row>
-      </Container>
+      <div className="main-section-content">
+        <Container className="mt-4 mb-4">
+          <Row>
+            <Col>
+              <Titulo
+                id="clientes-satisfechos"
+                data={translations.satisfiedClients[language]}
+                // showInicial={false}
+              ></Titulo>
+            </Col>
+          </Row>
+          <div className= "d-none d-lg-flex testimonial-container">
+            {clientesSatisfechos?.map(cliente => (
+              <Testimonio
+                key={cliente.node.id}
+                cliente={cliente.node}
+                carousel={false}
+              ></Testimonio>
+            ))}
+          </div>
+          <Row className="justify-content-around d-lg-none">
+            {testimonioCarousel({ clientesSatisfechos })}
+          </Row>
+        </Container>
+      </div>
     </Fragment>
   );
 }

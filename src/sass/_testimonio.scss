@@ -1,6 +1,7 @@
 .carousel-control-next {
   justify-content: flex-end;
 }
+
 .carousel-control-prev {
   justify-content: flex-start;
 }
@@ -11,73 +12,47 @@
   //   align-items: center;
 }
 
+.testimonial-container {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 .testimonio {
   display: flex;
   flex-direction: column;
+  flex-basis: calc(50% - 16px);
 
-  align-items: center;
-  & > div {
-    margin-bottom: 25px;
-  }
-  @media (max-width: $lg) {
-    padding: 15vw;
-  }
-  @media (max-width: $sm) {
-    padding: 6vw;
-  }
+  background-color: white;
+  gap: 24px;
 
-  .burbuja {
-    position: relative;
-    background-color: #fadfc1;
-    border-radius: 0.6em;
-    color: $color-secundario;
-    padding: 1rem;
-    flex-grow: 1;
+  border-radius: 16px;
+  padding: 32px;
+
+  // align-items: center;
+  justify-content: space-between;
+
+  .foto-links {
     display: flex;
-    flex-direction: column;
-    -webkit-box-shadow: -2px 10px 10px -1px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: -2px 10px 10px -1px rgba(0, 0, 0, 0.25);
-    box-shadow: -2px 10px 10px -1px rgba(0, 0, 0, 0.25);
-    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border: 29px solid transparent;
-      border-top-color: #fadfc1;
-      border-bottom: 0;
-      border-left: 0;
-      margin-left: -9.5px;
-      margin-bottom: -19px;
-    }
-
-    .texto {
+    .datos {
       display: flex;
-      //   align-items: center;
-      font-weight: 300;
-      flex-grow: 1;
-      margin-bottom: 10px;
-      font-size: 0.9rem;
-    }
+      flex-direction: column;
+      gap: 8px;
 
-    .nombre {
-      text-align: center;
-      font-weight: 500;
     }
-    .puesto {
-      text-align: center;
-      font-weight: 500;
-    }
-  }
-
-  .foto {
-    margin-right: 80px;
-    img {
+    .avatar {
       border-radius: 50%;
+    }
+    .nombre {
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .puesto {
+      font-size: 14px;
+      color: $color-oscuro-light;
     }
   }
 }

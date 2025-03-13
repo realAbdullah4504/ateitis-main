@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { Col } from "react-bootstrap";
 import { GatsbyImage,getImage } from "gatsby-plugin-image";
+import line from "../images/line2.png";
+import linkedin from "../images/inLogo.png";
 
 export default function Testimonio({ cliente, carousel }) {
   const nombre = cliente.title;
@@ -8,23 +10,26 @@ export default function Testimonio({ cliente, carousel }) {
   const imagen =
     cliente.acfClientesSatisfechos.fotoCliente.localFile.childImageSharp;
 
-  const extraClass = carousel ? "" : "col-lg-6 col-xl-3 ";
+  // const extraClass = carousel ? "" : "col-lg-4 col-xl-4";
 
   return (
     <Fragment>
-      <Col className={`testimonio my-3 ${extraClass}`}>
+      <div className={`testimonio my-3`}>
         <div className="burbuja">
           <div className="texto">{texto}</div>
+        </div>
+        <img  src={line} style={{
+          width:"100%"
+        }}></img>
+        <div className="foto-links">
           <div className="datos">
             <div className="nombre">{nombre}</div>
             <div className="puesto">{puestoCliente}</div>
+          <img src={linkedin} className="linkedin" width={32}></img>
           </div>
+          <GatsbyImage image={getImage(imagen)} imgClassName="avatar"></GatsbyImage>
         </div>
-        <div className="foto">
-          <GatsbyImage image={getImage(imagen)}></GatsbyImage>
-          <div className="estrella"></div>
-        </div>
-      </Col>
+      </div>
     </Fragment>
   );
 }
