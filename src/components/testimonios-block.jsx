@@ -1,34 +1,50 @@
 import React, { Fragment } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import Testimonio from "./testimonio";
+import Titulo from "./titulo";
+import translations from "../utils/translations";
 
-export default function TestimoniosBlock({ data, carousel = false }) {
-  data.sort((a, b) =>
+export default function TestimoniosBlock({ data, language }) {
+  const clientesSatisfechos = data?.clientes?.edges;
+  clientesSatisfechos?.sort((a, b) =>
     a.node.acfClientesSatisfechos.orden > b.node.acfClientesSatisfechos.orden
       ? 1
       : -1
   );
 
-  if (carousel) {
-    return testimonioCarousel({ data, carousel });
-  }
   return (
     <Fragment>
-      {data.map(cliente => (
-        <Testimonio
-          key={cliente.node.id}
-          cliente={cliente.node}
-          carousel={carousel}
-        ></Testimonio>
-      ))}
+      <Container fluid className="mt-4 px-xl-5 mx-sm-2 mx-md-5">
+        <Row>
+          <Col>
+            <Titulo
+              id="clientes-satisfechos"
+              data={translations.satisfiedClients[language]}
+              showInicial={false}
+            ></Titulo>
+          </Col>
+        </Row>
+        <Row className="justify-content-around d-none d-lg-flex">
+          {clientesSatisfechos?.map(cliente => (
+            <Testimonio
+              key={cliente.node.id}
+              cliente={cliente.node}
+              carousel={false}
+            ></Testimonio>
+          ))}
+        </Row>
+        <Row className="justify-content-around d-lg-none">
+          {testimonioCarousel({ clientesSatisfechos })}
+        </Row>
+      </Container>
     </Fragment>
   );
 }
 
-const testimonioCarousel = function ({ data, carousel }) {
+const testimonioCarousel = function ({ clientesSatisfechos }) {
   return (
     <Carousel indicators={false}>
-      {data.map(cliente => (
+      {clientesSatisfechos?.map(cliente => (
         <Carousel.Item key={`${cliente.node.id}_carousel`}>
           <Testimonio cliente={cliente.node} carousel></Testimonio>
         </Carousel.Item>

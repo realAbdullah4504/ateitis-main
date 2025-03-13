@@ -29,7 +29,9 @@ export default function NavbarServicios() {
                     ))}
                 </div>
                 <div className="academy-section">
-                    <span>¿CONOCES NUESTRA ACADEMIA?</span>
+                    <Link to="/academy">
+                        <span>¿CONOCES NUESTRA ACADEMIA?</span>
+                    </Link>
                 </div>
             </Navbar.Collapse>
         </Navbar>

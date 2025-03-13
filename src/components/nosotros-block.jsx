@@ -14,6 +14,7 @@ export default function NosotrosBlock({ data, language }) {
 
   return (
     <Fragment>
+      <Container>
       <Row className="my-5">
         {/* Contenido "estatico" (WP pages) */}
         <Col>
@@ -27,13 +28,13 @@ export default function NosotrosBlock({ data, language }) {
         </Col>
       </Row>
       {contenido.acfNosotros.descripcion && (
-        <Row className="mb-4 mt-4  mx-xl-5">
+        <Row className="mb-4 mt-4  mx-xl-2">
           <Col>
             <Parrafo data={contenido.acfNosotros.descripcion}></Parrafo>
           </Col>
         </Row>
       )}
-      <Row className="mb-4 mt-4 mx-xl-5">
+      <Row className="mb-4 mt-4 mx-xl-2">
         {data.allWpNosotrosItem.edges.map(item => (
           <Col md={6} lg={4} key={item.node.id} className="mb-3 mt-3">
             <BotonModal
@@ -46,6 +47,7 @@ export default function NosotrosBlock({ data, language }) {
           </Col>
         ))}
       </Row>
+    </Container>
     </Fragment>
   );
 }

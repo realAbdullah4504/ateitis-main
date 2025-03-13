@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage,getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function Certificaciones() {
   const data = useStaticQuery(certificacionesQuery);
@@ -8,10 +8,9 @@ export default function Certificaciones() {
 
   const imagen =
     data.allWpPage.edges[0].node.acfNuestrasCertificaciones.imagen.localFile
-      .childImageSharp.fluid;
+      .childImageSharp;
 
-  return <GatsbyImage image={getImage(imagen)} alt="Certificaciones" />;
-  // return <></>
+  return <GatsbyImage image={getImage(imagen)} alt="Certificaciones"/>;
 }
 
 const certificacionesQuery = graphql`
@@ -30,9 +29,7 @@ const certificacionesQuery = graphql`
                 id
                 childImageSharp {
                   id
-                  fluid {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
+                  gatsbyImageData( placeholder: BLURRED)
                 }
               }
             }

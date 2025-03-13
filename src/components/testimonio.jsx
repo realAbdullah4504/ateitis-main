@@ -6,7 +6,7 @@ export default function Testimonio({ cliente, carousel }) {
   const nombre = cliente.title;
   const { puestoCliente, texto } = cliente.acfClientesSatisfechos;
   const imagen =
-    cliente.acfClientesSatisfechos.fotoCliente.localFile.childImageSharp.fixed;
+    cliente.acfClientesSatisfechos.fotoCliente.localFile.childImageSharp;
 
   const extraClass = carousel ? "" : "col-lg-6 col-xl-3 ";
 

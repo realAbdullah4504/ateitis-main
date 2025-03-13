@@ -1,7 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import NavbarMenu from "../components/navbar";
-import logo from "../images/logo-ateitis.png";
 import NosotrosBlock from "../components/nosotros-block";
 import { graphql } from "gatsby";
 import { Col, Container, Row } from "react-bootstrap";
@@ -10,17 +8,19 @@ import ClientesBlock from "../components/clientes-block";
 import ContactoBlock from "../components/contacto-block";
 import SocialBlock from "../components/social-block";
 import SEO from "../components/seo";
-import StickyImg from "../images/landing-page-computer.png";
-import flagUsa from "../images/flag-usa.png";
 import ScrollArrow from "../components/ui/scroll-arrow";
 import NavbarServicios from "../components/navbar-servicios";
+import CertificacionesBlock from "../components/certificaciones-block";
+import escribinosImg from "../images/escribinos.png";
+import escribinosImgEn from "../images/escribinos-en.png";
+import TestimoniosBlock from "../components/testimonios-block";
 
 export default function ServiciosPage({ data, location }) {
   const language = "es";
- 
+
   return (
     <div id="servicios-page">
-       <Helmet>
+      <Helmet>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9YSTHJ42D"></script>
         <script>
           {`
@@ -40,44 +40,43 @@ export default function ServiciosPage({ data, location }) {
       <div className="">
         <div className="main-section">
           <div className="main-section-content">
-            <Container>
-              <Row>
-                <Col>
-                  <NosotrosBlock
-                    data={{
-                      nosotrosPage: data.nosotrosPage,
-                      allWpNosotrosItem: data.allWpNosotrosItem,
-                    }}
-                    language={language}
-                  ></NosotrosBlock>
-                </Col>
-              </Row>
-            </Container>
-            <Container>
-              <Row>
-                <Col>
-                  <ServiciosBlock
-                    data={{
-                      serviciosPage: data.serviciosPage,
-                      allWpServiciosItem: data.allWpServiciosItem,
-                    }}
-                    language={language}
-                  ></ServiciosBlock>
-                </Col>
-              </Row>
-            </Container>
-            <Container></Container>
+
+            <NosotrosBlock
+              data={{
+                nosotrosPage: data.nosotrosPage,
+                allWpNosotrosItem: data.allWpNosotrosItem,
+              }}
+              language={language}
+            ></NosotrosBlock>
+            <ServiciosBlock
+              data={{
+                serviciosPage: data.serviciosPage,
+                allWpServiciosItem: data.allWpServiciosItem,
+              }}
+              language={language}
+            ></ServiciosBlock>
+            <CertificacionesBlock language={language}></CertificacionesBlock>
           </div>
         </div>
-        <Container fluid>
-          <Row>
-            <ClientesBlock
-              data={{ clientes: data.clientesSatisfechos }}
-              language={language}
-            ></ClientesBlock>
+        <ClientesBlock
+
+          language={language}
+        ></ClientesBlock>
+
+        <TestimoniosBlock data={{ clientes: data.clientesSatisfechos }} language={language}></TestimoniosBlock>
+
+
+        <Container fluid className="escribinos-container">
+          <Row className="justify-content-end">
+            {
+              <img
+                src={language == "es" ? escribinosImg : escribinosImgEn}
+                alt="Escribinos"
+                className="img-fluid"
+              />
+            }
           </Row>
         </Container>
-
         <Container fluid className="seccion-contacto mt-4">
           <Row>
             <ContactoBlock language={language}></ContactoBlock>

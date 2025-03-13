@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import { GatsbyImage,getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import moveRight from "../images/move-right.png";
 import { Modal } from "react-bootstrap";
 
 export default function BotonModal({
@@ -19,15 +20,20 @@ export default function BotonModal({
         onClick={() => {
           setModalShow(true);
         }}
-        className={`boton-modal ${color ? "" : "secundario"} hvr-bob`}
+        className={`boton-modal hvr-bob ${nodeName === "acfServiciosListado" && 'align-items-start px-12'}`}
       >
-        <div className="image-container">
+        <div className={`image-container `}>
           <GatsbyImage image={getImage(logo)}></GatsbyImage>
         </div>
         <div className="label">
-          <div className="boton-modal-subtitulo">{subTitulo}</div>
-          <div className="boton-modal-titulo">{titulo}</div>
+          <div className={`boton-modal-titulo ${nodeName === "acfServiciosListado" && 'text-start'}`}>{titulo}</div>
+          <div className={`boton-modal-subtitulo ${nodeName === "acfServiciosListado" && 'text-start'}`}>{subTitulo?.toUpperCase()}</div>
         </div>
+        {nodeName === "acfServiciosListado" &&
+          <div className="learn-more"><span>Aprender más <img src={moveRight} style={{
+            marginLeft: '-5px'
+          }} /></span> </div>
+        }
       </div>
       <ModalBotonModal
         // mostrarFooter={mostrarFooter}
@@ -40,6 +46,7 @@ export default function BotonModal({
           logo,
           iconoEnBody,
           mostrarFooter,
+          nodeName
         }}
         show={modalShow}
         onHide={() => {
@@ -60,12 +67,13 @@ function ModalBotonModal(props) {
     logo,
     iconoEnBody,
     mostrarFooter,
+    nodeName
   } = props.data;
   return (
     <Modal {...props} size="lg" centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {subTitulo} {titulo}
+          {nodeName === "acfServiciosListado" ? "" : subTitulo} {titulo}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
