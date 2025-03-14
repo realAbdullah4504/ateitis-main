@@ -25,7 +25,7 @@ export default function TestimoniosBlock({ data, language }) {
               ></Titulo>
             </Col>
           </Row>
-          <div className= "d-none d-lg-flex testimonial-container">
+          <div className= "d-none d-md-flex testimonial-container">
             {clientesSatisfechos?.map(cliente => (
               <Testimonio
                 key={cliente.node.id}
@@ -34,7 +34,7 @@ export default function TestimoniosBlock({ data, language }) {
               ></Testimonio>
             ))}
           </div>
-          <Row className="justify-content-around d-lg-none">
+          <Row className="justify-content-around d-md-none" >
             {testimonioCarousel({ clientesSatisfechos })}
           </Row>
         </Container>
