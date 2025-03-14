@@ -45,6 +45,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
+    height: 100px;
 
     .datos {
       display: flex;

@@ -18,9 +18,7 @@ export default function Testimonio({ cliente, carousel }) {
         <div className="burbuja">
           <div className="texto">{texto}</div>
         </div>
-        <img src={line} style={{
-          width: "100%",
-        }}></img>
+        <img src={line}></img>
         <div className="foto-links">
           <div className="datos">
             <div className="nombre">{nombre}</div>
