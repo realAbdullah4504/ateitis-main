@@ -20,18 +20,13 @@
 .testimonio {
   display: flex;
   flex-direction: column;
-  flex:1 1 calc(50% - 16px);
-  max-width: calc(50% - 16px);
-  
-  @media screen and (min-width: $xl-min) {
-    flex:1 1 calc(33% - 16px);
-    max-width: calc(33% - 16px);
+  flex:1 1 calc(33% - 16px);
+  min-width: 0;
+
+  @media screen and (max-width: $lg) {
+    flex:1 1 calc(50% - 16px);
   }
 
-  @media screen and (max-width: $md) {
-    max-width: 100%;
-    
-  }
   background-color: white;
   gap: 24px;
 
