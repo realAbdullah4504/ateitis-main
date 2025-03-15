@@ -14,6 +14,8 @@ import CertificacionesBlock from "../components/certificaciones-block";
 import escribinosImg from "../images/escribinos.png";
 import escribinosImgEn from "../images/escribinos-en.png";
 import TestimoniosBlock from "../components/testimonios-block";
+import FaqsBlock from "../components/faqs-block";
+import { faqsData } from "../constants/faqs";
 
 export default function ServiciosPage({ data, location }) {
   const language = "es";
@@ -64,9 +66,10 @@ export default function ServiciosPage({ data, location }) {
         ></ClientesBlock>
 
         <TestimoniosBlock data={{ clientes: data.clientesSatisfechos }} language={language}></TestimoniosBlock>
+        <FaqsBlock data={{ faqs: faqsData }} language={language}></FaqsBlock>
 
 
-        <Container fluid className="escribinos-container">
+        {/* <Container fluid className="escribinos-container">
           <Row className="justify-content-end">
             {
               <img
@@ -84,7 +87,7 @@ export default function ServiciosPage({ data, location }) {
           <Row className="py-3">
             <SocialBlock></SocialBlock>
           </Row>
-        </Container>
+        </Container> */}
       </div>
     </div>
   );

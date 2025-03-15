@@ -1,0 +1,52 @@
+.faqs-container {
+    background-color: white;
+    padding: 157px 0;
+    display: flex;
+}
+
+.faqs {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.faqs-column {
+    flex: 1 1 calc(50% - 32px);
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+
+    @media screen and (max-width: $lg) {
+        flex: 1 1 100%;
+    }
+}
+
+
+.faq-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: $color-primario;
+    padding: 24px 46px;
+    cursor: pointer;
+    color: white; 
+}
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.faqs-question {
+    flex:1;
+    padding-left:5px;
+}
+
+.faq-icon {
+}
+
+.faqs-answer {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
