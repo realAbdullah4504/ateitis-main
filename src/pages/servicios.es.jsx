@@ -2,20 +2,19 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import NosotrosBlock from "../components/nosotros-block";
 import { graphql } from "gatsby";
-import { Col, Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import ServiciosBlock from "../components/servicios-block";
 import ClientesBlock from "../components/clientes-block";
-import ContactoBlock from "../components/contacto-block";
 import SocialBlock from "../components/social-block";
 import SEO from "../components/seo";
 import ScrollArrow from "../components/ui/scroll-arrow";
 import NavbarServicios from "../components/navbar-servicios";
 import CertificacionesBlock from "../components/certificaciones-block";
-import escribinosImg from "../images/escribinos.png";
-import escribinosImgEn from "../images/escribinos-en.png";
 import TestimoniosBlock from "../components/testimonios-block";
 import FaqsBlock from "../components/faqs-block";
-import { faqsData } from "../constants/faqs";
+import { blogsData, faqsData } from "../constants/data";
+import BlogsBlock from "../components/blogs-block";
+import Contacto from "../components/contacto";
 
 export default function ServiciosPage({ data, location }) {
   const language = "es";
@@ -67,27 +66,13 @@ export default function ServiciosPage({ data, location }) {
 
         <TestimoniosBlock data={{ clientes: data.clientesSatisfechos }} language={language}></TestimoniosBlock>
         <FaqsBlock data={{ faqs: faqsData }} language={language}></FaqsBlock>
+        <BlogsBlock data={{ blogs: blogsData }} language={language}></BlogsBlock>
 
+        <Contacto language={language}></Contacto>
 
-        {/* <Container fluid className="escribinos-container">
-          <Row className="justify-content-end">
-            {
-              <img
-                src={language == "es" ? escribinosImg : escribinosImgEn}
-                alt="Escribinos"
-                className="img-fluid"
-              />
-            }
-          </Row>
-        </Container>
-        <Container fluid className="seccion-contacto mt-4">
-          <Row>
-            <ContactoBlock language={language}></ContactoBlock>
-          </Row>
-          <Row className="py-3">
-            <SocialBlock></SocialBlock>
-          </Row>
-        </Container> */}
+        {/* <Row className="py-3">
+          <SocialBlock></SocialBlock>
+        </Row> */}
       </div>
     </div>
   );

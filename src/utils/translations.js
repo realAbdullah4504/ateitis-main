@@ -6,6 +6,7 @@ const translations = {
   satisfiedClients: { es: "Clientes Satisfechos", en: "Satisfied Customers" },
   ourCertifications: { es: "Nuestras Certificaciones", en: "Our Certifications" },
   ourFaqs: { es: "FAQS", en: "FAQS" },
+  ourBlogs: { es: "Blogs et articles", en: "Blogs and articles" },
 
   cart: {
     shoppingCart: { es: "Carrito de Compras", en: "Shopping Cart" },
